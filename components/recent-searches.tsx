@@ -6,6 +6,7 @@ import { History } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
+import { MapPin } from "lucide-react"
 
 interface RecentSearchesProps {
   searches: string[]
@@ -43,6 +44,8 @@ export function RecentSearches({ searches, onSelect, isLoading }: RecentSearches
                   className="w-full justify-start text-left font-normal"
                   onClick={() => onSelect(city)}
                 >
+                    <MapPin className="mr-2 h-4 w-4" />
+
                   {city}
                 </Button>
               </motion.div>

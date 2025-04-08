@@ -16,7 +16,7 @@ interface ForecastSectionProps {
 export function ForecastSection({ forecast }: ForecastSectionProps) {
   return (
     <Card>
-      <CardHeader className="pb-2">
+      <CardHeader className="pb-8">
         <CardTitle>5-Day Forecast</CardTitle>
       </CardHeader>
       <CardContent>
