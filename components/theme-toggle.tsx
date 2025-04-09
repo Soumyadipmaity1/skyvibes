@@ -14,7 +14,7 @@ export function ThemeToggle() {
       variant="outline"
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden bg-gray-100 dark:bg-gray-800"
     >
       <motion.div
         initial={false}
@@ -40,7 +40,7 @@ export function ThemeToggle() {
         <Sun className="h-5 w-5" />
       </motion.div>
 
-      <span className="sr-only">Toggle theme</span>
+      {/* <span className="sr-only">Toggle theme</span> */}
     </Button>
   )
 }
