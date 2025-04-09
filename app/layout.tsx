@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "SkyVibe",
   description: "A vibrant weather website that provides real-time updates",
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
