@@ -16,7 +16,7 @@ interface RecentSearchesProps {
 
 export function RecentSearches({ searches, onSelect, isLoading }: RecentSearchesProps) {
   return (
-    <Card>
+    <Card className="border border-gray-500 dark:border-gray-500" >
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2">
           <History className="h-5 w-5" />
