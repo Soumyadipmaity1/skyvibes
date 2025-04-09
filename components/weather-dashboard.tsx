@@ -99,19 +99,21 @@ export function WeatherDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80 pb-8">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-5 py-8">
         <header className="mb-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight">Weather Dashboard</h1>
-              <p className="text-muted-foreground">Check weather conditions anywhere in the world</p>
+          <div>
+            <div className="flex gap-4 sm:items-center justify-between">
+              <h1 className="sm:text-4xl text-3xl font-bold tracking-tight">SkyVibes</h1>
+              <ThemeToggle />
             </div>
-            <ThemeToggle />
+            <p className="text-gray-600 dark:text-gray-300 mt-4">
+              From sunny days to sudden showers, stay prepared with live updates and a vibe that fits your day
+            </p>
           </div>
-
+  
           <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <form onSubmit={handleSearch} className="flex flex-1 gap-2">
-              <div className="relative flex-1">
+              <div className="relative flex-1 border dark:border-gray-300 border-gray-600">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   type="text"
@@ -121,7 +123,11 @@ export function WeatherDashboard() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              <Button type="submit" disabled={isLoading}>
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="bg-black text-white dark:bg-white dark:text-black hover:bg-blue-900 dark:hover:bg-blue-200"
+              >
                 {isLoading ? (
                   <>
                     <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
@@ -132,13 +138,27 @@ export function WeatherDashboard() {
                 )}
               </Button>
             </form>
-            <Button variant="outline" onClick={handleRefresh} disabled={isLoading} className="shrink-0">
+  
+            <Button
+              variant="outline"
+              onClick={handleRefresh}
+              disabled={isLoading}
+              className="shrink-0 border-gray-500 border"
+            >
               <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
               Refresh
             </Button>
           </div>
+  
+          <div className="mt-4 block md:hidden">
+            <RecentSearches
+              searches={recentSearches}
+              onSelect={handleRecentSearch}
+              isLoading={isLoading}
+            />
+          </div>
         </header>
-
+  
         <main className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
           <div className="md:col-span-2 lg:col-span-3">
             <div className="grid gap-6">
@@ -165,7 +185,7 @@ export function WeatherDashboard() {
                   </motion.div>
                 )}
               </AnimatePresence>
-
+  
               <AnimatePresence mode="wait">
                 {isLoading ? (
                   <motion.div
@@ -191,12 +211,17 @@ export function WeatherDashboard() {
               </AnimatePresence>
             </div>
           </div>
-
-          <div>
-            <RecentSearches searches={recentSearches} onSelect={handleRecentSearch} isLoading={isLoading} />
+  
+          <div className="hidden md:block">
+            <RecentSearches
+              searches={recentSearches}
+              onSelect={handleRecentSearch}
+              isLoading={isLoading}
+            />
           </div>
         </main>
       </div>
     </div>
   )
+  
 }
