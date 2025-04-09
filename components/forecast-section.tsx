@@ -15,7 +15,7 @@ interface ForecastSectionProps {
 
 export function ForecastSection({ forecast }: ForecastSectionProps) {
   return (
-    <Card>
+    <Card className="border border-gray-500 dark:border-gray-500">
       <CardHeader className="pb-8">
         <CardTitle>5-Day Forecast</CardTitle>
       </CardHeader>
@@ -27,7 +27,7 @@ export function ForecastSection({ forecast }: ForecastSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="flex flex-col items-center rounded-lg border p-3 text-center transition-colors hover:bg-muted/50"
+              className="flex flex-col items-center rounded-lg border p-3 text-center transition-colors hover:bg-muted/50 bg-gray-100 dark:bg-gray-900"
             >
               <div className="font-medium">{day.day}</div>
               <img
